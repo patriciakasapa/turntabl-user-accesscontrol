@@ -1,3 +1,4 @@
+# arn:aws:s3:::usermanagementaws
 version: 0.2
 env:
   variables:
