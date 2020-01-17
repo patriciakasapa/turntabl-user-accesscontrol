@@ -23,22 +23,25 @@ export class VerificationComponent implements OnInit {
 
   ngOnInit() {
     // console.log(this.activatedRoute.snapshot.params.name);
-    this.appservice.currentMessage.subscribe(name => (this.userName = name));
+    // this.appservice.currentMessage.subscribe(name => (this.userName = name));
     // this.cookie.set("ttemail", "James");
-    this.cookieAvailable = this.cookie.check("ttemail");
-    if (this.cookieAvailable == true) {
-      this.appservice
-        .getEmployeeRole(this.cookie.get("ttemail"))
-        .subscribe(response => {
+    // this.cookieAvailable = this.cookie.check("ttemail");
+    // if (this.cookieAvailable == true) {
+    //   this.appservice
+    //     .getEmployeeRole(this.cookie.get("ttemail"))
+    //     .subscribe(response => {
           // console.log("Response", response[0].emp_role);
-          switch (response[0].emp_role) {
-            case "Administrator":
+          // switch (response[0].emp_role) {
+          //   case "Administrator":
               // this.appservice.changeMessage(response[0].emp_name);
-              localStorage.setItem("username", response[0].emp_name);
-              localStorage.setItem("empId", response[0].emp_id.toString());
-              this.isLoading = false;
-              this.router.navigate(["admin/projects"]);
-              break;
-  }
-
+//               localStorage.setItem("username", response[0].emp_name);
+//               localStorage.setItem("empId", response[0].emp_id.toString());
+//               this.isLoading = false;
+//               this.router.navigate(["admin/projects"]);
+//               break;
+//   }
+//         }
+//       }
+ }
 }
+
