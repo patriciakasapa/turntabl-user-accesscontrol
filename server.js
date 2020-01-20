@@ -26,7 +26,7 @@ const express = require("express");
 const path = require("path");
 const passport = require("passport");
 
-let userEmail = "";
+let userEmail = process.env.ADMIN_EMAIL
 passport.use(new SamlStrategy(
     {
       protocol: "https://",
@@ -39,7 +39,7 @@ passport.use(new SamlStrategy(
     function(profile, done) {
       console.log("profile", profile);
       findByEmail(profile.email, function(err) {
-        userEmail = profile.nameID;
+        userEmail;
         if (err) {
           return done(err);
         }
