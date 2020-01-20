@@ -30,14 +30,14 @@ let userEmail = process.env.ADMIN_EMAIL
 passport.use(new SamlStrategy(
     {
       protocol: "https://",
-      path: '/auth/saml/callback',
       entryPoint: process.env.ENTRY_POINT,
-      issuer: 'passport-saml',
+      issuer:     process.env.ISSUER,
       path: "/auth/saml/callback"
     //   cert: process.env.CERTIFICATE
     },
     
     function(profile, done) {
+      console.log("profile", profile);
       findByEmail(profile.email, function(err) {
         userEmail;
         if (err) {
@@ -68,7 +68,7 @@ app.get(
       failureRedirect: "/login"
     })
   );
-  
+  // &spid=350630521091&forceauthn=false
 //   app.get("/logout", function (req, res) {
 //     res.clearCookie('ttemail')
 //     req.logout();
