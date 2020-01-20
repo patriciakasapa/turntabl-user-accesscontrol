@@ -26,7 +26,7 @@ const express = require("express");
 const path = require("path");
 const passport = require("passport");
 
-let userEmail = process.env.ADMIN_EMAIL
+let userEmail = process.env.ADMIN_EMAIL;
 passport.use(new SamlStrategy(
     {
       protocol: "https://",
