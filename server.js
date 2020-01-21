@@ -4,7 +4,7 @@ const SamlStrategy = require("passport-saml").Strategy;
 const passport = require("passport");
 const bodyParser = require("body-parser");
 const cookieSession = require("cookie-session");
-// const cookieParser = require("cookie-parser");
+const cookieParser = require("cookie-parser");
 let userEmail = "";
 const app = express();
 // Serve only the static files form the dist directory
@@ -60,7 +60,7 @@ app.get(
 );
 
 app.get("/logout", function (req, res) {
-  // res.clearCookie('ttemail')
+  res.clearCookie('ttemail')
   req.logout();
   res.redirect("https://turntabl.io");
   // res.end("You have logged out.");
@@ -75,7 +75,7 @@ app.post(
   }),
   function (req, res) {
     // sets a cookie called ttemail and sets its max age to 1 day
-    // res.cookie('ttemail', userEmail, { maxAge: 1 * 24 * 60 * 60 * 1000, secure: true, httpOnly: false })
+    res.cookie('ttemail', userEmail, { maxAge: 1 * 24 * 60 * 60 * 1000, secure: true, httpOnly: false })
     res.redirect("https://turntabl-user-accesscontrol.herokuapp.com/home");
   }
 );
