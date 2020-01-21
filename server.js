@@ -111,7 +111,7 @@ app.post(
     if (req.isAuthenticated() || process.env.NODE_ENV !== "production") {
       next();
     } else {
-      res.redirect("https://turntabl-user-accesscontrol.herokuapp.com/home");
+      res.redirect("/login");
     }
   });
 
@@ -124,4 +124,4 @@ res.sendFile(path.join(__dirname+'/dist/UserManagementAWS/index.html'));
 });
 
 // Start the app by listening on the default Heroku port
-app.listen(process.env.PORT || 8050);
+app.listen(process.env.PORT || 8080);
