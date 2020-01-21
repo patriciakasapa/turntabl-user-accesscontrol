@@ -8,7 +8,7 @@ const cookieSession = require("cookie-session");
 let userEmail = "";
 const app = express();
 // Serve only the static files form the dist directory
-app.use(express.static(__dirname + '/dist/UserManagementAWS'));
+app.use(express.static(__dirname + '/dist/turntabl-user-accesscontrol'));
 
 app.use(cookieParser());
 app.use(
@@ -88,7 +88,7 @@ app.all("*", function (req, res, next) {
   }
 });
 app.get("/*", function (req, res) {
-  res.sendFile(path.join(__dirname + "/dist/UserManagementAWS/index.html"));
+  res.sendFile(path.join(__dirname + "/dist/turntabl-user-accesscontrol/index.html"));
 });
 
 // Start the app by listening on the default Heroku port
