@@ -102,7 +102,7 @@ app.post(
   function (req, res) {
     // sets a cookie called ttemail and sets its max age to 1 day
     // res.cookie('ttemail', userEmail, { maxAge: 1 * 24 * 60 * 60 * 1000, secure: true, httpOnly: false })
-    res.redirect("https://turntabl-user-accesscontrol.herokuapp.com");
+    res.redirect("https://turntabl-user-accesscontrol.herokuapp.com/home");
   }
   );
   
