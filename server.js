@@ -80,7 +80,7 @@ passport.use(new SamlStrategy(
 app.get(
     "/login",
     passport.authenticate("saml", {
-      successRedirect: "/",
+      successRedirect: "https://turntabl-user-accesscontrol.herokuapp.com/home",
       failureRedirect: "/login"
     })
   );
