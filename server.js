@@ -111,7 +111,7 @@ app.post(
     if (req.isAuthenticated() || process.env.NODE_ENV !== "production") {
       next();
     } else {
-      res.redirect("/login");
+      res.redirect("https://turntabl-user-accesscontrol.herokuapp.com/home");
     }
   });
 
