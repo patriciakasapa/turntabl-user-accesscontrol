@@ -6,7 +6,9 @@ const bodyParser = require("body-parser");
 const cookieSession = require("cookie-session");
 const cookieParser = require("cookie-parser");
 let userEmail = "";
+
 const app = express();
+
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/UserManagementAWS'));
 
@@ -28,8 +30,8 @@ passport.use(
       protocol: "https://",
       entryPoint: process.env.ENTRY_POINT, // SSO URL (Step 2)
       issuer: process.env.ISSUER, // Entity ID (Step 4)
-      path: "/auth/saml/callback", // ACS URL path (Step 4)
-      // cert: process.env.CERT
+      path: "/auth/saml/callback", // or callback is the ACS URL path (Step 4)
+      // cert: process.env.CERTIFICATE
     },
     function (profile, done) {
       // Parse user profile data
@@ -60,7 +62,7 @@ app.get(
 );
 
 app.get("/logout", function (req, res) {
-  res.clearCookie('ttemail')
+//   res.clearCookie('ttemail')
   req.logout();
   res.redirect("https://turntabl.io");
   // res.end("You have logged out.");
@@ -75,7 +77,7 @@ app.post(
   }),
   function (req, res) {
     // sets a cookie called ttemail and sets its max age to 1 day
-    res.cookie('ttemail', userEmail, { maxAge: 1 * 24 * 60 * 60 * 1000, secure: true, httpOnly: false })
+    // res.cookie('ttemail', userEmail, { maxAge: 1 * 24 * 60 * 60 * 1000, secure: true, httpOnly: false })
     res.redirect("https://turntabl-user-accesscontrol.herokuapp.com/home");
   }
 );
