@@ -6,6 +6,12 @@ import { AppComponent } from './app.component';
 import { VerificationComponent } from './verification/verification.component';
 import { HomeComponent } from './home/home.component';
 
+
+//For primeNG
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
+import {MenuItem} from 'primeng/api';                 //api
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +20,9 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    AccordionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
